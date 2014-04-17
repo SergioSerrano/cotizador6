@@ -1,0 +1,496 @@
+<meta http-equiv="Content-Type" content="text/html" charset="iso-8859-1" />
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html" charset="iso-8859-1" />
+		<link href="css/victorinox2.css" rel="stylesheet" type="text/css" />
+		<link href="css/jquery.mobile.structure-1.0.min.css" rel="stylesheet" type="text/css" />
+		<script src="phonegap.js"></script>
+		<script src="js/jquery-1.6.4.min.js" type="text/javascript"></script>
+		<script src="js/jquery.mobile-1.0.min.js" type="text/javascript"></script>
+		<script src="js/API/servidor.js" type="text/javascript"></script>
+		<script src="js/API/eventos.js" type="text/javascript"></script>
+		<script src="js/API/captura.js" type="text/javascript"></script>
+		<script src="js/API/archivos.js" type="text/javascript"></script>
+		<script src="js/API/dispositivo.js" type="text/javascript"></script>
+		<script src="js/API/almacenamiento.js" type="text/javascript"></script>
+		<script src="js/API/conexion.js" type="text/javascript"></script>
+		<script src="js/API/jquery.maskedinput-1.3.1.min_.js" type="text/javascript"></script>
+		<script src="js/API/jspdf.js" type="text/javascript"></script>
+		<script src="jspdf.plugin.standard_fonts_metrics.js"></script>
+		<script type="text/javascript" src="js/API/libs/base64.js"></script>
+		<script type="text/javascript" src="js/API/jspdf.plugin.addimage.js"></script>
+		<script type="text/javascript" src="js/API/libs/FileSaver.js/FileSaver.js"></script>
+		<script type="text/javascript" src="js/API/jspdf.plugin.standard_fonts_metrics.js"></script>
+		<style>
+			div.abs {
+				width: auto;
+				height: auto;
+				position: relative;
+				left:15px;
+				text-align:center;
+				vertical-align:middle;
+				margin-left:auto;
+				margin-right:auto;
+				cursor: pointer;
+			}
+			div.abs2 {
+				margin:auto;
+				width:100%;
+				text-align:center;
+			}
+			div.abs3 {
+				margin:auto;
+				width:554px;
+			}
+			div.superior {
+				margin:auto;
+				width:auto;
+				vertical-align:top;
+			}
+			div.inferior {
+				margin:auto;
+				position:fixed;
+				bottom:70px;
+				width:100%;
+			}
+			div.logo {
+				text-align: right;
+				margin-right:0px;
+				position:relative;
+				top:0px;
+				right:0px;
+				width:100%;
+				height:138px;
+			}
+			div.clave {
+				width:20%;
+			}
+			div.descripcion {
+				width:50%;
+			}
+			div.gen {
+				width:100%;
+				text-align: right;
+			}
+			div.p_unit {
+				width:100%;
+				text-align: right;
+			}
+			p {
+				font-size: 10%;
+			}
+			td.can {
+				text-align: right;
+			}
+			td.col_total {
+				text-align: right;
+			}
+			td.p_unit {
+				text-align: right;
+			}
+			td.flete0 {
+				text-align: right;
+			}
+			label {
+				font-size: 90%;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<!-- pagina principal -->
+		<div data-role="page" id="cotizacion" data-theme="b">
+			<div data-role="header" data_theme="a">
+				<h1>Victorinox M&eacute;xico</h1>
+			</div>
+			<!-- <div class="logo">
+				<img src="css/images/logoVictorinox.png" width="180px" height="100%" alt="VICTORINOX" style="right:0px;">
+font-weight:bold; 
+			</div>
+-->
+			<div data-role="content" data-theme="b" style=" top:600 ;alignment-adjust:central; vertical-align:central; text-align:center">
+				<div style="text-align: center;  ">
+					<label for="textinput" style="text-align: center " data-theme="b">Av. Hermanos S&eacute;rdan N&ordm; 717 Col. Sn Rafael Poniente, CP 72029 Puebla, Pue. M&eacute;xico. 01 (222) 2668330 ext 113 ferias@victorinox.com.mx</label>
+				</div>
+				<div class="abs">
+					<div class="abs2">
+						<TABLE WIDTH=100% HEIGHT=200 id="datos1">
+							<tr>
+								<TD width="33%" ALIGN=LEFT>
+									<img src="css/images/logoVictorinox.png" width="180px" height="138px" alt="VICTORINOX" style="right:0px;">
+								</TD>
+								<TD width="33%" ALIGN=CENTER>
+									<label for="textinput" data-theme="b">COTIZACI&Oacute;N</label>
+								</TD>
+								<TD width="33%" ALIGN=RIGHT>
+									<label data-theme="b" id="descripcion"></label>
+								</TD>
+							</tr>
+							<tr>
+								<TD width="33%" ALIGN=LEFT>
+									<label for="textinput" data-theme="b">Comprador:</label>
+									<input disabled="true" type="text" name="textinput" id="Comprador" value="" />
+								</TD>
+								<TD width="33%" ALIGN=LEFT></TD>
+								<TD width="33%" ALIGN=LEFT>
+									<label for="textinput" data-theme="b">Agente:</label>
+									<input disabled="true" type="text" name="textinput" id="agente" value="" />
+								</TD>
+							</tr>
+							<tr>
+								<TD width="33%" ALIGN=LEFT>
+									<label for="textinput" data-theme="b">Cliente:</label>
+									<input class="cliente123" type="text" name="textinput" id="No_cliente" value="" />
+								</TD>
+								<TD WIDTH="33%" ALIGN=LEFT>
+									<label for="textinput" data-theme="b">Poblacion:</label>
+									<input disabled="true" type="text" name="textinput" id="poblacion" value="" />
+								</TD>
+								<TD WIDTH="33%" ALIGN=LEFT>
+									<label for="textinput" data-theme="b">Condic:</label>
+									<input disabled="true" type="text" name="textinput" id="condic" value="" />
+								</TD>
+							</tr>
+							<tr>
+								<TD width="33%" ALIGN=LEFT>
+									<label for="textinput" data-theme="b">Razon Social:</label>
+									<input disabled="true" type="text" name="textinput" id="razon" value="" />
+								</TD>
+								<TD WIDTH="33%" ALIGN=LEFT>
+									<label for="textinput" data-theme="b">Estado:</label>
+									<input disabled="true" type="text" name="textinput" id="estado" value="" />
+								</TD>
+								<TD WIDTH="33%" ALIGN=LEFT>
+									<label for="textinput" data-theme="b">Tel:</label>
+									<input disabled="true" type="text" name="textinput" id="tel" value="" />
+								</TD>
+							</tr>
+							<tr>
+								<TD width="33%" ALIGN=LEFT>
+									<label for="textinput" data-theme="b">Calle:</label>
+									<input disabled="true" type="text" name="textinput" id="calle" value="" />
+								</TD>
+								<TD WIDTH="33%" ALIGN=LEFT>
+									<label for="textinput" data-theme="b">C.P.:</label>
+									<input disabled="true" type="text" name="textinput" id="cp" value="" />
+								</TD>
+								<TD WIDTH="33%" ALIGN=LEFT>
+									<label for="textinput" data-theme="b">Fax:</label>
+									<input disabled="true" type="text" name="textinput" id="fax" value="" />
+								</TD>
+							</tr>
+							<tr>
+								<TD width="33%" ALIGN=LEFT>
+									<label for="textinput" data-theme="b">Colonia:</label>
+									<input disabled="true" type="text" name="textinput" id="colonia" value="" />
+								</TD>
+								<TD WIDTH="33%" ALIGN=LEFT>
+									<label for="textinput" data-theme="b">Status:</label>
+									<input disabled="true" type="text" name="textinput" id="status" value="" />
+								</TD>
+								<TD WIDTH="33%" ALIGN=LEFT>
+									<label for="textinput" data-theme="b">Mail:</label>
+									<input disabled="true" type="text" name="textinput" id="mail" value="" />
+								</TD>
+							</tr>
+						</TABLE>
+						<!-- /*<div style="text-align: left; font-weight:bold; ">
+							<div data-role="fieldcontain">
+								<fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
+									<legend>Elije un tipo de precio:</legend>
+									<input type="radio" name="radio-choice-1" id="radio-choice-1" value="1.0" checked="checked" />
+									<label for="radio-choice-1">100</label>
+									<input type="radio" name="radio-choice-1" id="radio-choice-2" value="1.12" />
+									<label for="radio-choice-2">112</label>
+									<input type="radio" name="radio-choice-1" id="radio-choice-3" value="1.20" />
+									<label for="radio-choice-3">120</label>
+									<input type="radio" name="radio-choice-1" id="radio-choice-4" value="1.67" />
+									<label for="radio-choice-4">150</label>
+								</fieldset>
+							</div>
+						</div>*/-->
+						<div style="text-align: left; font-weight:bold;  ">
+							<label for="textinput" style="text-align: center; " data-theme="b">Por medio de la presente te envio un cordial saludo y a su vez te hago llegar la cotizaci&oacute;n solicitada.</label>
+						</div>
+						<TABLE WIDTH=100% HEIGHT=auto id="Claves">
+							<tr>
+								<TD width="5%" ALIGN=center>
+									<label data-theme="b">Exi</label>
+								</TD>
+								<TD width="8%" ALIGN=center>
+									<label data-theme="b">Clave</label>
+								</TD>
+								<TD width="2%" ALIGN=center></TD>
+								<TD width="5%" ALIGN=center>
+									<label data-theme="b">Cant</label>
+								</TD>
+								<TD width="50%" ALIGN=center>
+									<label data-theme="b">Descripci&oacute;n</label>
+								</TD>
+								<TD width="10%" ALIGN=center>
+									<label data-theme="b">Precio Unit</label>
+								</TD>
+								<TD width="10%" ALIGN=center>
+									<label data-theme="b">Total</label>
+								</TD>
+							</tr>
+						</TABLE>
+						<div data-role="navbar" data-iconpos="top">
+							<ul>
+								<li>
+									<a href="#" data-transition="none" data-theme="c" id="add_line">A&ntilde;adir Renglon</a>
+								</li>
+							</ul>
+						</div>
+						<!--//inicia final-->
+						<TABLE WIDTH=100% HEIGHT=auto id="totales">
+							<tr>
+								<TD width="10%" ALIGN=left>
+									<label data-theme="b"></label>
+								</TD>
+								<TD width="60%" ALIGN=left>
+									<label data-theme="b"></label>
+								</TD>
+								<TD width="10%" ALIGN=center>
+									<label data-theme="b"></label>
+								</TD>
+								<TD width="10%" ALIGN=center class="t_total" style="text-align: right; "></TD>
+							</tr>
+							<tr>
+								<TD width="10%" ALIGN=left>
+									<label data-theme="b"></label>
+								</TD>
+								<TD width="60%" ALIGN=left>
+									<label data-theme="b"></label>
+								</TD>
+								<TD width="10%" ALIGN=center>
+									<label data-theme="b">Descuento</label>
+								</TD>
+								<TD width="10%" ALIGN=center class="flete0">
+									<div data-role="fieldcontain" data-theme="c">
+										<input style="text-align: right; " class="percent" type="text" name="textinput" id="c_percent" value="0" />%</div>
+								</TD>
+							</tr>
+							<tr>
+								<TD width="10%" ALIGN=left>
+									<label data-theme="b"></label>
+								</TD>
+								<TD width="60%" ALIGN=left>
+									<label data-theme="b"></label>
+								</TD>
+								<TD width="10%" ALIGN=center>
+									<label data-theme="b"></label>
+								</TD>
+								<TD width="10%" ALIGN=center class="desc_total" style="text-align: right; ">
+									<label data-theme="b" id="t_descuento">0.0</label>
+								</TD>
+							</tr>
+							<tr>
+								<TD width="10%" ALIGN=left>
+									<label data-theme="b">Condiciones de Venta:</label>
+								</TD>
+								<TD width="60%" ALIGN=left>
+									<label data-theme="b">100% de dep&oacute;sito</label>
+								</TD>
+								<TD width="10%" ALIGN=center>
+									<div data-role="fieldcontain" data-theme="c">
+										<table>
+											<tr>
+												<TD>
+													<input type="checkbox" name="checkbox1_0" id="checkbox1_0" value="83.0" data-theme="c" />
+												</TD>
+												<TD>
+													<label>Flete</label>
+												</TD>
+											</tr>
+										</table>
+									</div>
+								</TD>
+								<TD width="10%" ALIGN=center class="flete0" style="text-align: right; ">
+									<label data-theme="b" id="flete1">0.00</label>
+								</TD>
+							</tr>
+							<tr>
+								<TD width="10%" ALIGN=left>
+									<label data-theme="b"></label>
+								</TD>
+								<TD width="60%" ALIGN=left>
+									<label data-theme="b">Dep&oacute;sito en efectivo o cheque mismo banco. Si es un cheque de otro banco se autoriza su</label>
+								</TD>
+								<TD width="10%" ALIGN=center>
+									<label data-theme="b">SUB-TOTAL</label>
+								</TD>
+								<TD width="10%" ALIGN=center class="st_m0" style="text-align: right; ">
+									<label data-theme="b" id="st_m1"></label>
+								</TD>
+							</tr>
+							<tr>
+								<TD width="10%" ALIGN=left>
+									<label data-theme="b"></label>
+								</TD>
+								<TD width="60%" ALIGN=left>
+									<label data-theme="b">pedido al tercer d&iacute;a que su cheque se refleje y no sea rebotado por el banco</label>
+								</TD>
+								<TD width="10%" ALIGN=center>
+									<label data-theme="b">IVA</label>
+								</TD>
+								<TD width="10%" ALIGN=center class="iva0" style="text-align: right; ">
+									<label data-theme="b" id="iva1"></label>
+								</TD>
+							</tr>
+							<tr>
+								<TD width="10%" ALIGN=left>
+									<label data-theme="b"></label>
+								</TD>
+								<TD width="60%" ALIGN=left>
+									<label data-theme="b">Ficha de convenio CIE Bancomer N&uacute;m. 1829-7 Cta. Bancomer Suc. 1803</label>
+								</TD>
+								<TD width="10%" ALIGN=center>
+									<label data-theme="b">TOTAL</label>
+								</TD>
+								<TD width="10%" ALIGN=center class="mt0" style="text-align: right; ">
+									<label data-theme="b" id="mt1">monto</label>
+								</TD>
+							</tr>
+							<tr>
+								<TD width="10%" ALIGN=left>
+									<label data-theme="b"></label>
+								</TD>
+								<TD width="60%" ALIGN=left>
+									<label data-theme="b">No de Cta.0446573118 Transferencia electr&oacute;nica 012 650 0044573118 3</label>
+								</TD>
+								<TD width="10%" ALIGN=center>
+									<label data-theme="b"></label>
+								</TD>
+								<TD width="10%" ALIGN=center>
+									<label data-theme="b"></label>
+								</TD>
+							</tr>
+							<tr>
+								<TD width="10%" ALIGN=left>
+									<label data-theme="b"></label>
+								</TD>
+								<TD width="60%" ALIGN=left>
+									<label data-theme="b">BANAMEX 184414-2 Suc.826 San Felipe &oacute; Transferencia 002 65008261844142 7</label>
+								</TD>
+								<TD width="10%" ALIGN=center>
+									<label data-theme="b"></label>
+								</TD>
+								<TD width="10%" ALIGN=center>
+									<label data-theme="b"></label>
+								</TD>
+							</tr>
+							<tr>
+								<TD width="10%" ALIGN=left>
+									<label data-theme="b">Comentarios</label>
+								</TD>
+								<TD width="60%" ALIGN=left>
+									<label data-theme="b">Los precios anteriores No incluyen IVA, est&aacute;n sujetos a cambios sin previo aviso y a existencias</label>
+								</TD>
+								<TD width="10%" ALIGN=center>
+									<label data-theme="b"></label>
+								</TD>
+								<TD width="10%" ALIGN=center>
+									<label data-theme="b"></label>
+								</TD>
+							</tr>
+							<tr>
+								<TD width="10%" ALIGN=left>
+									<label data-theme="b">Tiempo de entrega:</label>
+								</TD>
+								<TD width="60%" ALIGN=left>
+									<label data-theme="b">5 d&iacute;as h&aacute;biles</label>
+								</TD>
+								<TD width="10%" ALIGN=center>
+									<label data-theme="b"></label>
+								</TD>
+								<TD width="10%" ALIGN=center>
+									<label data-theme="b"></label>
+								</TD>
+							</tr>
+						</TABLE>
+					</div>
+				</div>
+				<div style="text-align: center; font-weight:bold;  ">
+					<label for="textinput" style="text-align: center; " data-theme="b">&iexcl;Muchas Gracias!</label>
+					<br>
+				</div>
+				<div data-role="navbar" data-iconpos="top">
+					<ul>
+						<li>
+							<br>
+							<a href="#" data-transition="none" data-theme="c" id="cancela">Cancelar</a>
+						</li>
+						<li>
+							<br>
+							<a data-theme="c" href="#" data-transition="none" id="guarda">Guardar y Enviar por E-mail</a>
+						</li>
+						
+					</ul>
+				</div>
+			</div>
+			<div data-role="footer" style="text-align:center;" data-position="fixed" data-theme="b">
+				<img src="css/images/plecaVictorinox.jpg" width="100%" height="20px" alt="Texto Alternativo">
+				<a data-role="button" data-theme="b" href="#nosotros" class="ui-btn-left" data-transition="slideup">Nosotros</a>
+				<span style="font-size: 8pt;">Todos los derechos reservados &copy;</span>
+			</div>
+		</div>
+		<!-- pagina inicio -->
+		<div data-role="page" id="form1" data-theme="b">
+			<div data-role="header" data_theme="a">
+				<h1>Victorinox M&eacute;xico</h1>
+			</div>
+			<div data-role="content" class="ui-content" data-theme="b">
+				<a href="#cotizacion" data-role="button" data-icon="arrow-r" data-theme="c" style="vertical-align:bottom" id="prospectos">Cotizacion para Prospectos</a>
+				<div data-role="fieldcontain">
+					<label for="search-2">Buscar Cliente:</label>
+					<input type="search" name="search-2" id="search-2" value="" />
+				</div>
+				<ul id="autocomplete" data-role="listview" data-filter-placeholder="Buscar Cliente"></ul>
+			</div>
+			<div data-role="footer" data-theme="b" style="  text-align:center;" data-position="fixed">
+				<a data-role="button" data-theme="b" href="#nosotros" class="ui-btn-left" data-transition="slideup">Nosotros</a>
+				<span style="font-size: 8pt;">Todos los derechos reservados &copy;</span>
+			</div>
+		</div>
+		<!-- pagina 'nosotros' -->
+		<div data-role="page" id="nosotros" data-theme="b">
+			<div data-role="header" data_theme="a">
+				<h1>Nosotros</h1>
+				<a data-role="button" data-theme="b" data-direction="reverse" data-rel="back" href="#page1" data-icon="delete" data-iconpos="notext" class="ui-btn-corner-all" data-theme="b"></a>
+			</div>
+			<div data-role="content" style="text-align:justify;" data-theme="b" data-position="fixed">
+				<div data-position="fixed" width="auto" height="auto">
+					<img src="css/images/nosotros_Victorinox.jpg" width="1280" height="720" alt="VICTORINOX">
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed" data-theme="b"></div>
+		</div>
+		<script type="text/javascript" src="js/API/jquery.maskedinput-1.3.1.min_.js"></script>
+		<script type="text/javascript">
+			/*	$('.clave123').live('change', function() { 
+			$( this ).parents('tr').children( '.descripcion' ).children('#las').remove();
+ 			$('<label for="textinput" data-theme="b" id="las">'+$( this ).val()+'</label>').appendTo($( this ).parents('tr').children( '.descripcion' ));
+			$( this ).parents('tr').children( '.p_unit' ).children('#lab').remove();
+ 			$('<label for="textinput" data-theme="b" id="lab">'+$( this ).val()+'</label>').appendTo($( this ).parents('tr').children( '.p_unit' ));
+								});*/
+			 // <![CDATA[
+			jQuery(function($) {
+				var meses = new Array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
+				var f = new Date();
+				document.getElementById('descripcion').innerHTML = "Puebla Pue, a:  " + f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear();
+
+
+
+			});
+			 // ]]&gt;
+
+
+			Number.prototype.format = function() {
+				return this.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
+			};
+		</script>
+	</body>
+	<!--pepes17@gmail.com -Sergio Serrano-->
+
+</html>

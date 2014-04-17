@@ -106,7 +106,7 @@ function guarda_cliente(val1, val2, val3, val4, val5, val6, val7, val8, val9, va
 	});*/
 	ajax = nuevoAjax();
 	ajax.open("POST", "http://testapp2.260mb.net/sincronizar/g_clientes.php", true);
-	ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=ISO-8859-1");
+	ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=utf8");
 	ajax.send("c1=" + val1 + "&c2=" + val2 + "&c3=" + val3 + "&c4=" + val4 + "&c5=" + val5 + "&c6=" + val6 + "&c7=" + val7 + "&c8=" + val8 + "&c9=" + val9 + "&c10=" + val10 + "&c11=" + val11 + "&c12=" + val12 + "&c13=" + val13 + "&c14=" + val14 + "&c15=" + val15 + "&c16=" + val16 + "&c17=" + val17 + "&times=" + times);
 	ajax.onreadystatechange = function () {
 		if (ajax.readyState == 4) {
@@ -147,7 +147,7 @@ function sube_interno(val1, val2, val3, val4, val5, val6, val7, val8, val9, val1
 
 	ajax = nuevoAjax();
 	ajax.open("POST", "http://testapp2.260mb.net/sincronizar/g_clientes.php", true);
-	ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=ISO-8859-1");
+	ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=utf8");
 	ajax.send("c1=" + val1 + "&c2=" + val2 + "&c3=" + val3 + "&c4=" + val4 + "&c5=" + val5 + "&c6=" + val6 + "&c7=" + val7 + "&c8=" + val8 + "&c9=" + val9 + "&c10=" + val10 + "&c11=" + val11 + "&c12=" + val12 + "&c13=" + val13 + "&c14=" + val14 + "&c15=" + val15 + "&c16=" + val16 + "&c17=" + val17);
 	ajax.onreadystatechange = function () {
 		if (ajax.readyState == 4) {
@@ -185,7 +185,7 @@ function obtener_ultimo_folio(clave) {
 
 	ajax = nuevoAjax();
 	ajax.open("POST", "http://testapp2.260mb.net/sincronizar/d_o.php", true);
-	ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=ISO-8859-1");
+	ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=utf8");
 	ajax.send("clave=" + clave);
 	ajax.onreadystatechange = function () {
 		if (ajax.readyState == 4) {
@@ -206,7 +206,7 @@ function obtener_coincidencias(buscado) {
 
 	ajax = nuevoAjax();
 	ajax.open("POST", "http://testapp2.260mb.net/sincronizar/b_clientes.php", true);
-	ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=ISO-8859-1");
+	ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=utf8");
 	ajax.send("buscado=" + buscado);
 	ajax.onreadystatechange = function () {
 		if (ajax.readyState == 4) {

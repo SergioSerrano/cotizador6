@@ -20,6 +20,7 @@ function nuevoAjax() {
 function enviarDatos(nom, tel, email) {
 	$.ajax({
 		type: "POST",
+		content="iso-8859-1",
 		url: "http://testapp2.260mb.net/sincronizar/enviar.php",
 		data: "nom=" + nom + "&tel=" + tel + "&mai=" + email
 	}).done(function (msg) {
@@ -64,6 +65,7 @@ function guarda_calif(valrad1, valrad2, valrad3, valrad4, valrad5, times) {
 
 	$.ajax({
 		type: "POST",
+		content="iso-8859-1",
 		url: "http://testapp2.260mb.net/sincronizar/g_preguntas.php",
 		data: "c1=" + valrad1 + "&c2=" + valrad2 + "&c3=" + valrad3 + "&c4=" + valrad4 + "&c5=" + valrad5 + "&times=" + times
 	}).done(function (msg) {
@@ -106,7 +108,7 @@ function guarda_cliente(val1, val2, val3, val4, val5, val6, val7, val8, val9, va
 	});*/
 	ajax = nuevoAjax();
 	ajax.open("POST", "http://testapp2.260mb.net/sincronizar/g_clientes.php", true);
-	ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=iso-8859-1");
 	ajax.send("c1=" + val1 + "&c2=" + val2 + "&c3=" + val3 + "&c4=" + val4 + "&c5=" + val5 + "&c6=" + val6 + "&c7=" + val7 + "&c8=" + val8 + "&c9=" + val9 + "&c10=" + val10 + "&c11=" + val11 + "&c12=" + val12 + "&c13=" + val13 + "&c14=" + val14 + "&c15=" + val15 + "&c16=" + val16 + "&c17=" + val17 + "&times=" + times);
 	ajax.onreadystatechange = function () {
 		if (ajax.readyState == 4) {
@@ -147,7 +149,7 @@ function sube_interno(val1, val2, val3, val4, val5, val6, val7, val8, val9, val1
 
 	ajax = nuevoAjax();
 	ajax.open("POST", "http://testapp2.260mb.net/sincronizar/g_clientes.php", true);
-	ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=iso-8859-1");
 	ajax.send("c1=" + val1 + "&c2=" + val2 + "&c3=" + val3 + "&c4=" + val4 + "&c5=" + val5 + "&c6=" + val6 + "&c7=" + val7 + "&c8=" + val8 + "&c9=" + val9 + "&c10=" + val10 + "&c11=" + val11 + "&c12=" + val12 + "&c13=" + val13 + "&c14=" + val14 + "&c15=" + val15 + "&c16=" + val16 + "&c17=" + val17);
 	ajax.onreadystatechange = function () {
 		if (ajax.readyState == 4) {
@@ -163,6 +165,7 @@ function sube_interno(val1, val2, val3, val4, val5, val6, val7, val8, val9, val1
 function subirReserva(id, th, ha, di, pe) {
 	$.ajax({
 		type: "POST",
+		content="iso-8859-1",
 		url: "http://testapp2.260mb.net/sincronizar/enviar.php",
 		data: "nom=" + th + "&tel=" + ha + "&mai=" + di + "&pe=" + pe
 	}).done(function (msg) {
@@ -185,7 +188,7 @@ function obtener_ultimo_folio(clave) {
 
 	ajax = nuevoAjax();
 	ajax.open("POST", "http://testapp2.260mb.net/sincronizar/d_o.php", true);
-	ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=iso-8859-1");
 	ajax.send("clave=" + clave);
 	ajax.onreadystatechange = function () {
 		if (ajax.readyState == 4) {
@@ -206,7 +209,7 @@ function obtener_coincidencias(buscado) {
 
 	ajax = nuevoAjax();
 	ajax.open("POST", "http://testapp2.260mb.net/sincronizar/b_clientes.php", true);
-	ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=iso-8859-1");
 	ajax.send("buscado=" + buscado);
 	ajax.onreadystatechange = function () {
 		if (ajax.readyState == 4) {
@@ -226,6 +229,7 @@ function obtener_coincidencias(buscado) {
 function obtener_info_clave(clave, objc) {
 	return $.ajax({
 		type: "GET",
+		content="iso-8859-1",
 		url: "http://testapp2.260mb.net/sincronizar/info_clave.php",
 		data: "clave=" + clave
 	}).done(function (msg) {
@@ -257,6 +261,7 @@ function obtener_info_cliente(cliente) {
 
 	return $.ajax({
 		type: "POST",
+		content="iso-8859-1",
 		url: "http://testapp2.260mb.net/sincronizar/datos_cliente.php",
 		data: "cliente=" + cliente
 	}).done(function (msg) {

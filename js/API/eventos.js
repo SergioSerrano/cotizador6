@@ -63,7 +63,7 @@ $(document).ready(function (e) {
 				ajax = nuevoAjax();
 
 				ajax.open("POST", "http://testapp2.260mb.net/sincronizar/b_clientes.php", true);
-				ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
 				ajax.send("buscado=" + value);
 				ajax.onreadystatechange = function () {
 					if (ajax.readyState == 4) {
